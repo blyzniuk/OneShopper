@@ -1,7 +1,7 @@
 var dotenv = require("dotenv");
 dotenv.config();
 
-const { spaceId, accessToken, snipcart } = process.env;
+const { CONTENTFUL_SPACE_ID: spaceId, CONTENTFUL_ACCESS_TOKEN: accessToken, snipcart } = process.env;
 
 module.exports = {
   siteMetadata: {
