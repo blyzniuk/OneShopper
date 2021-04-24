@@ -16,14 +16,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               }
             }
           }
-          allContentfulBlogs {
-            edges {
-              node {
-                id
-                slug
-              }
-            }
-          }
         }
       `).then(result => {
         if (result.errors) {
@@ -37,15 +29,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               slug: edge.node.slug,
             },
           })
-        });
-        result.data.allContentfulBlogs.edges.forEach(data => {
-          createPage({
-            path: data.node.slug,
-            component: BlogTemplate,
-            context: {
-              slug: data.node.slug
-            }
-          });
         });
         return
       })
